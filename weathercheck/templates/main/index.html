@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+    <form method="post" class="mb-4">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="city" class="form-label">Введите город</label>
+            <input type="text" name="city" id="city" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Показать погоду</button>
+    </form>
+
+    {% if last_city %}
+        <p>Последний просмотренный город: <strong>{{ last_city }}</strong></p>
+        <a href="{% url 'weather:show_weather' last_city %}" class="btn btn-secondary">
+            Посмотреть снова
+        </a>
+    {% endif %}
+{% endblock %}

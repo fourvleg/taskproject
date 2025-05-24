@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  weather:
+    image: weather-check
+    container_name: weather-check
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    restart: unless-stopped 
+    environment:
+      - SECRET_KEY=django-insecure-xa(xc)p^91g-6!mrf&9)vkhdn8b&-15g=3ida%ziupg$t%1#@4
+      - DEBUG=True
