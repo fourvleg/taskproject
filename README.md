@@ -38,6 +38,11 @@ docker build -t weather-check .
 ```bash
 docker-compose up
 ```
+После выполните миграции в отдельном терминале:
+
+```bash
+docker-compose exec weather python manage.py migrate
+```
 
 Приложение будет доступно по адресу [http://localhost:8000](http://localhost:8000)
 
